@@ -1,0 +1,218 @@
+[
+  {
+    "Country": "Portugal",
+    "City": "Lisabon",
+    "Latitude": "38.707008",
+    "Longitude": "-9.135640"
+  },
+  {
+    "Country": "Spain",
+    "City": "Madrid",
+    "Latitude": "40.416775",
+    "Longitude": "-3.703790"
+  },
+  {
+    "Country": "France",
+    "City": "Paris",
+    "Latitude": "48.856613",
+    "Longitude": "2.352222"
+  },
+  {
+    "Country": "Germany",
+    "City": "Berlin",
+    "Latitude": "52.520008",
+    "Longitude": "13.404954"
+  },
+  {
+    "Country": "Belgium",
+    "City": "Brussels",
+    "Latitude": "50.850346",
+    "Longitude": "4.351721"
+  },
+  {
+    "Country": "Netherland",
+    "City": "Amsterdam",
+    "Latitude": "52.370216",
+    "Longitude": "4.895168"
+  },
+  {
+    "Country": "UK",
+    "City": "London",
+    "Latitude": "51.507351",
+    "Longitude": "-0.127758"
+  },
+  {
+    "Country": "Ireland",
+    "City": "Dublin",
+    "Latitude": "53.349804",
+    "Longitude": "-6.260310"
+  },
+  {
+    "Country": "Switzerland",
+    "City": "Bern",
+    "Latitude": "46.947975",
+    "Longitude": "7.447447"
+  },
+  {
+    "Country": "Italy",
+    "City": "Rome",
+    "Latitude": "41.902782",
+    "Longitude": "12.496365"
+  },
+  {
+    "Country": "Austria",
+    "City": "Vienna",
+    "Latitude": "48.208176",
+    "Longitude": "16.373819"
+  },
+  {
+    "Country": "Czechia",
+    "City": "Prague",
+    "Latitude": "50.075539",
+    "Longitude": "14.437800"
+  },
+  {
+    "Country": "Poland",
+    "City": "Warsaw",
+    "Latitude": "52.229675",
+    "Longitude": "21.012230"
+  },
+  {
+    "Country": "Slovakia",
+    "City": "Bratislava",
+    "Latitude": "48.148598",
+    "Longitude": "17.107748"
+  },
+  {
+    "Country": "Hungary",
+    "City": "Budapest",
+    "Latitude": "47.497913",
+    "Longitude": "19.040236"
+  },
+  {
+    "Country": "Slovenia",
+    "City": "Ljubljana",
+    "Latitude": "46.056946",
+    "Longitude": "14.505752"
+  },
+  {
+    "Country": "Croatia",
+    "City": "Zagreb",
+    "Latitude": "45.815010",
+    "Longitude": "15.981919"
+  },
+  {
+    "Country": "Serbia",
+    "City": "Belgrade",
+    "Latitude": "44.815070",
+    "Longitude": "20.460480"
+  },
+  {
+    "Country": "Bosnia & Herzegovina",
+    "City": "Sarajevo",
+    "Latitude": "43.856258",
+    "Longitude": "18.413076"
+  },
+  {
+    "Country": "Montenegro",
+    "City": "Podgorica",
+    "Latitude": "42.438061",
+    "Longitude": "19.265551"
+  },
+  {
+    "Country": "North Macedonia",
+    "City": "Skopje",
+    "Latitude": "41.997345",
+    "Longitude": "21.427996"
+  },
+  {
+    "Country": "Albania",
+    "City": "Tirana",
+    "Latitude": "41.327545",
+    "Longitude": "19.818699"
+  },
+  {
+    "Country": "Grecce",
+    "City": "Athens",
+    "Latitude": "37.983810",
+    "Longitude": "23.727539"
+  },
+  {
+    "Country": "Turkey",
+    "City": "Ankara",
+    "Latitude": "39.933365",
+    "Longitude": "32.859741"
+  },
+  {
+    "Country": "Bulgaria",
+    "City": "Sofia",
+    "Latitude": "42.697708",
+    "Longitude": "23.321867"
+  },
+  {
+    "Country": "Romania",
+    "City": "Bucharest",
+    "Latitude": "44.426765",
+    "Longitude": "26.102537"
+  },
+  {
+    "Country": "Ukraine",
+    "City": "Kyiv",
+    "Latitude": "50.450100",
+    "Longitude": "30.523399"
+  },
+  {
+    "Country": "Russia",
+    "City": "Moscow",
+    "Latitude": "55.755825",
+    "Longitude": "37.617298"
+  },
+  {
+    "Country": "Norway",
+    "City": "Oslo",
+    "Latitude": "59.913868",
+    "Longitude": "10.752245"
+  },
+  {
+    "Country": "Sweeden",
+    "City": "Stockholm",
+    "Latitude": "59.329323",
+    "Longitude": "18.068581"
+  },
+  {
+    "Country": "Denmark",
+    "City": "Copenhagen",
+    "Latitude": "55.676098",
+    "Longitude": "12.568337"
+  },
+  {
+    "Country": "Finland",
+    "City": "Helsinki",
+    "Latitude": "60.169857",
+    "Longitude": "24.938379"
+  },
+  {
+    "Country": "Belarus",
+    "City": "Minsk",
+    "Latitude": "53.904541",
+    "Longitude": "27.561523"
+  },
+  {
+    "Country": "Lithuania",
+    "City": "Vilnius",
+    "Latitude": "54.687157",
+    "Longitude": "25.279652"
+  },
+  {
+    "Country": "Latvia",
+    "City": "Riga",
+    "Latitude": "56.949650",
+    "Longitude": "24.105186"
+  },
+  {
+    "Country": "Estonia",
+    "City": "Tallinn",
+    "Latitude": "59.436962",
+    "Longitude": "24.753574"
+  }
+]
