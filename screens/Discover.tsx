@@ -9,20 +9,26 @@ import {
   Keyboard,
   TouchableOpacity,
   ScrollView,
+  ActivityIndicator,
 } from 'react-native';
 import React, { useLayoutEffect, useState } from 'react';
 import {
   AttractionImage,
   AvatarImage,
   HotelImage,
+  NotFoundIMage,
   RestaurantsImage,
 } from '../assets/images';
 import CityData from '../mockedData/CityData.json';
 import MenuContainer from '../components/MenuContainer';
-import { AntDesign } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
+import ItemCardContainer from '../components/ItemCardContainer';
+import { useQueryData } from '../api/useQuery';
 const Discover = ({ navigation }: any) => {
   const [searchInput, setSearchInput] = useState<string>('');
   const [choice, setChoice] = useState<string>('restaurants');
+  const [mainData, setMainData] = useState<string[]>(['asds']);
+
   useLayoutEffect(() => {
     navigation.setOptions({
       headerShown: false,
@@ -34,6 +40,9 @@ const Discover = ({ navigation }: any) => {
       item.City.toLowerCase().includes(searchInput.toLowerCase())
     );
   };
+
+  const { data, isFetching, refetch } = useQueryData(choice);
+  console.log(data, isFetching, choice);
 
   return (
     <TouchableWithoutFeedback
@@ -93,40 +102,96 @@ const Discover = ({ navigation }: any) => {
         </View>
 
         {/* menu container, options */}
-        <ScrollView>
-          <View className="flex-row items-center justify-between px-8 mt-8">
-            <MenuContainer
-              key="hotel"
-              title="Hotels"
-              image={HotelImage}
-              choice={choice}
-              setChoice={setChoice}
-            />
-            <MenuContainer
-              key="attractions"
-              title="Attractions"
-              image={AttractionImage}
-              choice={choice}
-              setChoice={setChoice}
-            />
-            <MenuContainer
-              key="restaurants"
-              title="Restaurants"
-              image={RestaurantsImage}
-              choice={choice}
-              setChoice={setChoice}
-            />
+        {isFetching ? (
+          <View className="flex-1 justify-center items-center">
+            <ActivityIndicator size={'large'} color="#0B646B" />
           </View>
-          <View>
-            <View>
-              <Text>Top Tips</Text>
-              <TouchableOpacity>
-                <Text>Explore</Text>
-                <AntDesign name="arrowright" size={24} color="black" />
-              </TouchableOpacity>
+        ) : (
+          <ScrollView>
+            <View className="flex-row items-center justify-between px-8 mt-8">
+              <MenuContainer
+                key="hotel"
+                title="Hotels"
+                image={HotelImage}
+                choice={choice}
+                setChoice={setChoice}
+                refetch={refetch}
+              />
+              <MenuContainer
+                key="attractions"
+                title="Attractions"
+                image={AttractionImage}
+                choice={choice}
+                setChoice={setChoice}
+                refetch={refetch}
+              />
+              <MenuContainer
+                key="restaurants"
+                title="Restaurants"
+                image={RestaurantsImage}
+                choice={choice}
+                setChoice={setChoice}
+                refetch={refetch}
+              />
             </View>
-          </View>
-        </ScrollView>
+            <View>
+              <View className="flex-row items-center justify-between px-4 mt-8">
+                <Text className="text-[#2c7379] text-[28px] font-bold">
+                  Top Tips
+                </Text>
+                <TouchableOpacity className="flex-row items-center justify-center space-x-2">
+                  <Text className="text-[#A0C4C7] text-[20px] font-bold">
+                    Explore
+                  </Text>
+                  <FontAwesome
+                    name="long-arrow-right"
+                    size={24}
+                    color="#A0C4C7"
+                  />
+                </TouchableOpacity>
+              </View>
+
+              <View className="px-4 mt-8 flex-row items-center justify-evenly flex-wrap">
+                {data?.length > 0 ? (
+                  <>
+                    {/* <ItemCardContainer
+                      key={'101'}
+                      imageSrc="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg"
+                      location="Novi Pazar"
+                      title="Vrbak"
+                    />
+                    <ItemCardContainer
+                      key={'102'}
+                      imageSrc="https://cdn.pixabay.com/photo/2013/07/18/20/26/sea-164989_960_720.jpg"
+                      location=""
+                      title=""
+                    /> */}
+                    {data?.map((el: any, i: number) => (
+                      <ItemCardContainer
+                        key={i}
+                        imageSrc={el?.photo?.images?.medium?.url}
+                        location={el?.location_string}
+                        title={el?.name}
+                      />
+                    ))}
+                  </>
+                ) : (
+                  <>
+                    <View className="w-full h-[400px] items-center justify-center space-y-8 ">
+                      <Image
+                        source={NotFoundIMage}
+                        className="w-32 h-32 object-cover "
+                      />
+                      <Text className="text-2xl text-[#428288] font-semibold">
+                        Opps...No Data Found
+                      </Text>
+                    </View>
+                  </>
+                )}
+              </View>
+            </View>
+          </ScrollView>
+        )}
       </SafeAreaView>
     </TouchableWithoutFeedback>
   );

@@ -12,7 +12,11 @@ export default function App() {
     <NavigationContainer>
       <QueryClientProvider client={client}>
         <Stack.Navigator>
-          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{ headerShadowVisible: false }}
+          />
           <Stack.Screen name="Discover" component={Discover} />
         </Stack.Navigator>
       </QueryClientProvider>

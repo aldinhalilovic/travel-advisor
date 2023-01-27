@@ -8,13 +8,14 @@ import {
 import React, { useLayoutEffect } from 'react';
 import { HeroImage } from '../assets/images/index.js';
 import * as Animatable from 'react-native-animatable';
+import { useQueryData } from '../api/useQuery';
 
 const HomeScreen = ({ navigation }: any) => {
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      headerShown: false,
-    });
-  }, []);
+  const { refetch, isLoading, isFetching } = useQueryData('restaurants');
+  const handlePress = () => {
+    navigation.navigate('Discover');
+    refetch();
+  };
 
   return (
     <SafeAreaView className="flex-1 bg-white relative">
@@ -51,7 +52,7 @@ const HomeScreen = ({ navigation }: any) => {
           className="w-full h-full object-cover mt-20"
         />
         <TouchableOpacity
-          onPress={() => navigation.navigate('Discover')}
+          onPress={handlePress}
           className="absolute bottom-20 w-24 h-24 border-l-2 border-r-2 border-t-4 border-[#00BCC9] rounded-full justify-center items-center"
         >
           <Animatable.View
