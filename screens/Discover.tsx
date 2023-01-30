@@ -29,12 +29,6 @@ const Discover = ({ navigation }: any) => {
   const [choice, setChoice] = useState<string>('restaurants');
   const [mainData, setMainData] = useState<string[]>(['asds']);
 
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      headerShown: false,
-    });
-  }, []);
-
   const filterData = () => {
     return CityData.filter((item) =>
       item.City.toLowerCase().includes(searchInput.toLowerCase())
@@ -169,9 +163,14 @@ const Discover = ({ navigation }: any) => {
                     {data?.map((el: any, i: number) => (
                       <ItemCardContainer
                         key={i}
-                        imageSrc={el?.photo?.images?.medium?.url}
+                        imageSrc={
+                          el?.photo?.images?.medium?.url
+                            ? el?.photo?.images?.medium?.url
+                            : 'https://cdn.pixabay.com/photo/2015/10/30/12/22/eat-1014025_1280.jpg'
+                        }
                         location={el?.location_string}
                         title={el?.name}
+                        data={el}
                       />
                     ))}
                   </>

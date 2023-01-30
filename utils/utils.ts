@@ -10,4 +10,5 @@ export interface IItemCardContainerProps {
   imageSrc: string;
   title: string;
   location: string;
+  data: any;
 }
