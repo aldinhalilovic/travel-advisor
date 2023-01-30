@@ -8,11 +8,7 @@ import {
 } from 'react-native';
 import React from 'react';
 import { FontAwesome, FontAwesome5, MaterialIcons } from '@expo/vector-icons';
-
-interface ICuisini {
-  key: string;
-  name: string;
-}
+import { ICuisini } from '../utils/utils';
 
 const ItemScreen = ({ route, navigation: { goBack } }: any) => {
   const { params } = route?.params;

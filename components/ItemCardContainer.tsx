@@ -4,11 +4,6 @@ import { IItemCardContainerProps } from '../utils/utils';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
-interface IProps {
-  props: IItemCardContainerProps;
-  navigation: any;
-}
-
 const ItemCardContainer = (props: IItemCardContainerProps) => {
   const navigation = useNavigation();
 

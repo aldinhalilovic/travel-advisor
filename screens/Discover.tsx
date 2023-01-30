@@ -11,7 +11,7 @@ import {
   ScrollView,
   ActivityIndicator,
 } from 'react-native';
-import React, { useLayoutEffect, useState } from 'react';
+import React, { useState } from 'react';
 import {
   AttractionImage,
   AvatarImage,
@@ -24,10 +24,9 @@ import MenuContainer from '../components/MenuContainer';
 import { FontAwesome } from '@expo/vector-icons';
 import ItemCardContainer from '../components/ItemCardContainer';
 import { useQueryData } from '../api/useQuery';
-const Discover = ({ navigation }: any) => {
+const Discover = () => {
   const [searchInput, setSearchInput] = useState<string>('');
   const [choice, setChoice] = useState<string>('restaurants');
-  const [mainData, setMainData] = useState<string[]>(['asds']);
 
   const filterData = () => {
     return CityData.filter((item) =>
@@ -148,18 +147,6 @@ const Discover = ({ navigation }: any) => {
               <View className="px-4 mt-8 flex-row items-center justify-evenly flex-wrap">
                 {data?.length > 0 ? (
                   <>
-                    {/* <ItemCardContainer
-                      key={'101'}
-                      imageSrc="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg"
-                      location="Novi Pazar"
-                      title="Vrbak"
-                    />
-                    <ItemCardContainer
-                      key={'102'}
-                      imageSrc="https://cdn.pixabay.com/photo/2013/07/18/20/26/sea-164989_960_720.jpg"
-                      location=""
-                      title=""
-                    /> */}
                     {data?.map((el: any, i: number) => (
                       <ItemCardContainer
                         key={i}

@@ -5,13 +5,13 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
-import React, { useLayoutEffect } from 'react';
+import React from 'react';
 import { HeroImage } from '../assets/images/index.js';
 import * as Animatable from 'react-native-animatable';
 import { useQueryData } from '../api/useQuery';
 
 const HomeScreen = ({ navigation }: any) => {
-  const { refetch, isLoading, isFetching } = useQueryData('restaurants');
+  const { refetch } = useQueryData('restaurants');
   const handlePress = () => {
     navigation.navigate('Discover');
     refetch();
