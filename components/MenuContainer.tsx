@@ -4,7 +4,7 @@ import { IMenuContainerProps } from '../utils/utils';
 
 const MenuContainer = (props: IMenuContainerProps) => {
   const handlePress = () => {
-    props.setChoice(props.title.toLowerCase());
+    props.handlePlace(props.title.toLowerCase());
   };
   return (
     <TouchableOpacity

@@ -1,8 +1,15 @@
+export interface ISinglePlace {
+  City: string;
+  Country: string;
+  Latitude: string;
+  Longitude: string;
+}
+
 export interface IMenuContainerProps {
   image: any;
   title: string;
   choice: string;
-  setChoice: React.Dispatch<React.SetStateAction<string>>;
+  handlePlace: any;
 }
 
 export interface IItemCardContainerProps {
@@ -19,6 +26,6 @@ export interface ICuisini {
 
 export interface IGetPlaceData {
   place: string;
-  lat?: string;
-  long?: string;
+  lat: string;
+  long: string;
 }

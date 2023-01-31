@@ -1,13 +1,14 @@
 import axios from 'axios';
+import { IGetPlaceData } from '../utils/utils';
 
-export const getPlaceData = async (props: string) => {
+export const getPlaceData = async (choice: IGetPlaceData) => {
   try {
     const data = axios.get(
-      `https://travel-advisor.p.rapidapi.com/${props}/list-by-latlng`,
+      `https://travel-advisor.p.rapidapi.com/${choice.place}/list-by-latlng`,
       {
         params: {
-          latitude: '48.856613',
-          longitude: '2.352222',
+          latitude: choice.lat,
+          longitude: choice.long,
           limit: '30',
           distance: '10',
           lunit: 'km',

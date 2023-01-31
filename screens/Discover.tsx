@@ -19,22 +19,36 @@ import {
   NotFoundIMage,
   RestaurantsImage,
 } from '../assets/images';
-import CityData from '../mockedData/CityData.json';
 import MenuContainer from '../components/MenuContainer';
-import { FontAwesome } from '@expo/vector-icons';
 import ItemCardContainer from '../components/ItemCardContainer';
+import CityData from '../mockedData/CityData.json';
+import { FontAwesome } from '@expo/vector-icons';
 import { useQueryData } from '../api/useQuery';
+import { IGetPlaceData, ISinglePlace } from '../utils/utils';
+
 const Discover = () => {
   const [searchInput, setSearchInput] = useState<string>('');
-  const [choice, setChoice] = useState<string>('restaurants');
+  const [choice, setChoice] = useState<IGetPlaceData>({
+    place: 'restaurants',
+    lat: '48.856613',
+    long: '2.352222',
+  });
+
+  const { data, isFetching } = useQueryData(choice);
+
+  const handlePlace = (place: string) => {
+    setChoice({ ...choice, place });
+  };
+
+  const handleLongLat = (item: ISinglePlace) => {
+    setChoice({ ...choice, lat: item.Latitude, long: item.Longitude });
+  };
 
   const filterData = () => {
-    return CityData.filter((item) =>
+    return CityData.filter((item: ISinglePlace) =>
       item.City.toLowerCase().includes(searchInput.toLowerCase())
     );
   };
-
-  const { data, isFetching } = useQueryData(choice);
 
   return (
     <TouchableWithoutFeedback
@@ -59,9 +73,9 @@ const Discover = () => {
             />
           </View>
         </View>
+
         {/* 
           search autocomplete input whos searching from CITYDATA, mockeddata made handmade by me,
-        
         */}
         <View className="flex-col items-center bg-white mx-4 rounded-xl py-1 px-4 shadow-lg mt-4">
           <TextInput
@@ -72,14 +86,13 @@ const Discover = () => {
           />
           {searchInput.length >= 1 && (
             <FlatList
-              // className="pb-5"
               data={filterData()}
               renderItem={({ item }) => (
                 <View className="w-96 border-b border-zinc-300 h-10 pl-2 justify-center ">
                   <TouchableOpacity
                     onPress={() => {
                       setSearchInput(`${item.City}, ${item.Country}`);
-                      // console.log(item);
+                      handleLongLat(item);
                     }}
                   >
                     <Text className="font-medium text-[17px] ">
@@ -105,22 +118,22 @@ const Discover = () => {
                 key="hotel"
                 title="Hotels"
                 image={HotelImage}
-                choice={choice}
-                setChoice={setChoice}
+                choice={choice.place}
+                handlePlace={handlePlace}
               />
               <MenuContainer
                 key="attractions"
                 title="Attractions"
                 image={AttractionImage}
-                choice={choice}
-                setChoice={setChoice}
+                choice={choice.place}
+                handlePlace={handlePlace}
               />
               <MenuContainer
                 key="restaurants"
                 title="Restaurants"
                 image={RestaurantsImage}
-                choice={choice}
-                setChoice={setChoice}
+                choice={choice.place}
+                handlePlace={handlePlace}
               />
             </View>
             <View>

@@ -1,20 +1,11 @@
-import {
-  Text,
-  SafeAreaView,
-  View,
-  Image,
-  TouchableOpacity,
-} from 'react-native';
+import { Text, SafeAreaView, View, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { HeroImage } from '../assets/images/index.js';
 import * as Animatable from 'react-native-animatable';
-import { useQueryData } from '../api/useQuery';
 
 const HomeScreen = ({ navigation }: any) => {
-  const { refetch } = useQueryData('restaurants');
   const handlePress = () => {
     navigation.navigate('Discover');
-    refetch();
   };
 
   return (
@@ -26,6 +17,7 @@ const HomeScreen = ({ navigation }: any) => {
         </View>
         <Text className="text-[#2a2b4b] text-3xl font-semibold">Travel</Text>
       </View>
+
       {/* second section, hero section, text */}
 
       <View className=" px-6 mt-8 space-y-3">
@@ -37,6 +29,7 @@ const HomeScreen = ({ navigation }: any) => {
           Lorem ipsum dolor sit amet consectetur adipisig elit. Quisquam, modi.
         </Text>
       </View>
+
       {/* circles in the background */}
 
       <View className="w-[400px] h-[400px] bg-[#00BCC9] rounded-full absolute bottom-36 -right-36"></View>
