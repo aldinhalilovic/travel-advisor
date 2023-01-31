@@ -1,9 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
+import { IGetPlaceData } from '../utils/utils';
 import { getPlaceData } from './instance';
 
-export const useQueryData = (choice: string) => {
-  return useQuery(['placeData'], () => getPlaceData(choice), {
-    enabled: false,
-    cacheTime: 0,
-  });
+export const useQueryData = (choice: IGetPlaceData) => {
+  return useQuery(['placeData', choice], () => getPlaceData(choice));
 };

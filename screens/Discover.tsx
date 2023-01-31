@@ -34,8 +34,7 @@ const Discover = () => {
     );
   };
 
-  const { data, isFetching, refetch } = useQueryData(choice);
-  console.log(data, isFetching, choice);
+  const { data, isFetching } = useQueryData(choice);
 
   return (
     <TouchableWithoutFeedback
@@ -68,19 +67,19 @@ const Discover = () => {
           <TextInput
             value={searchInput}
             onChangeText={setSearchInput}
-            placeholder="Search europe..."
+            placeholder="Paris, France"
             className="w-full h-10 pl-2 font-semibold"
           />
           {searchInput.length >= 1 && (
             <FlatList
-              className="pb-5"
+              // className="pb-5"
               data={filterData()}
               renderItem={({ item }) => (
                 <View className="w-96 border-b border-zinc-300 h-10 pl-2 justify-center ">
                   <TouchableOpacity
                     onPress={() => {
                       setSearchInput(`${item.City}, ${item.Country}`);
-                      console.log(item);
+                      // console.log(item);
                     }}
                   >
                     <Text className="font-medium text-[17px] ">
@@ -108,7 +107,6 @@ const Discover = () => {
                 image={HotelImage}
                 choice={choice}
                 setChoice={setChoice}
-                refetch={refetch}
               />
               <MenuContainer
                 key="attractions"
@@ -116,7 +114,6 @@ const Discover = () => {
                 image={AttractionImage}
                 choice={choice}
                 setChoice={setChoice}
-                refetch={refetch}
               />
               <MenuContainer
                 key="restaurants"
@@ -124,7 +121,6 @@ const Discover = () => {
                 image={RestaurantsImage}
                 choice={choice}
                 setChoice={setChoice}
-                refetch={refetch}
               />
             </View>
             <View>
